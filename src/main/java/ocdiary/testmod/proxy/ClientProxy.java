@@ -6,7 +6,6 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import ocdiary.testmod.registry.Refs;
 
 public class ClientProxy extends CommonProxy {
 

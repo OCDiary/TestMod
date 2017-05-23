@@ -5,29 +5,38 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import ocdiary.testmod.init.TestTab;
 import ocdiary.testmod.proxy.CommonProxy;
-import ocdiary.testmod.registry.Refs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-@Mod(modid = Refs.MODID, name = Refs.NAME, version = Refs.VERSION)
+@Mod(modid = TestMod.MODID, name = TestMod.NAME, version = TestMod.VERSION)
 public class TestMod {
 
-    public static final Logger LOGGER = LogManager.getLogger("The Oink");
+    public static final String MODID = "testmod";
+    public static final String NAME = "Test Mod";
+    public static final String VERSION = "1.10.2-1";
+
+    public static final String CPROXY = "ocdiary.testmod.proxy.ClientProxy";
+    public static final String SPROXY = "ocdiary.testmod.proxy.CommonProxy";
+
+    public static final Logger LOGGER = LogManager.getLogger("TestMod");
+
+    public static TestTab CREATIVETAB = new TestTab();
 
     public static int mobEffectTime = 2000;
 
-    @Mod.Instance(Refs.MODID)
+    @Mod.Instance(TestMod.MODID)
     public static TestMod instance;
 
 
-    @SidedProxy(serverSide = Refs.SPROXY, clientSide = Refs.CPROXY)
+    @SidedProxy(serverSide = TestMod.SPROXY, clientSide = TestMod.CPROXY)
     public static CommonProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        System.out.println(Refs.NAME + "now loading...");
+        System.out.println(TestMod.NAME + "now loading...");
         proxy.preInit(event);
 
     }
